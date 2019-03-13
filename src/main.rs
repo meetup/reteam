@@ -114,9 +114,10 @@ where
 
 fn main() -> Result<(), Box<dyn Error>> {
     env_logger::init();
-    let Env { github_token } = envy::from_env::<Env>()?;
+
     match Options::from_args() {
         Options::Repos { organization, team } => {
+            let Env { github_token } = envy::from_env::<Env>()?;
             let results: Response<Search> = request(
                 github_token.as_str(),
                 TAGGED_REPOS,
@@ -131,6 +132,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             team,
             topic,
         } => {
+            let Env { github_token } = envy::from_env::<Env>()?;
             let results: Response<Search> = request(
                 github_token.as_str(),
                 TAGGED_REPOS,
