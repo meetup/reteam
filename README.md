@@ -28,7 +28,7 @@ List all github repositories under a organization tagged with a team name topic
 
 ```sh
 $ GITHUB_TOKEN=xxx cargo run -q -- \
-  update-topic \
+  repos \
     --organization github-org \
     --team team-name
 ```
