@@ -120,7 +120,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             let results: Response<Search> = request(
                 github_token.as_str(),
                 TAGGED_REPOS,
-                &json!({ "query": format!("org:{} topic:{}", organization, team) }),
+                json!({ "query": format!("org:{} topic:{}", organization, team) }),
             )?;
             for node in results.data.search.nodes {
                 println!("{}", node.name);
